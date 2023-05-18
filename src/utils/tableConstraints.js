@@ -5,43 +5,43 @@ module.exports = {
         email:    {type: 'string'},
         password: {type: 'string'},
     },
-    Friend:{
+    friends:{
         id: {type: 'string'},
-        userId: {type: 'string'},
-        friendId: {type: 'string'},
+        user_id: {type: 'string'},
+        friend_id: {type: 'string'},
         created_at:{type: 'dateTime'},
         updated_at:{type: 'dateTime'},
     },
-    Group: { 
+    groups: { 
         id: {type: 'string'},
-        groupName: {type: 'string'},
-        createdBy: {type: 'string'} ,
-        created_at: {type: 'dateTime'} ,
-        updated_at: {type: 'dateTime'},
+        group_name: {type: 'string'},
+        created_by: {type: 'string'} ,
+        // created_at: {type: 'dateTime'} ,
+        // updated_at: {type: 'dateTime'},
     },
-    User_Group: {
+    user_groups: {
         id: {type: 'string'},
-        userId: {type: 'string'},
-        groupId: {type: 'string'},
+        user_id: {type: 'string'},
+        group_id: {type: 'string'},
         create_at: {type: 'dateTime'}, 
         updated_at : {type: 'dateTime'},
     },
-    Expense: {
+    expenses: {
         id: {type: 'string'},
         description: {type: 'string'},
         amount: {type: 'string'},
-        paidBy: {type: 'string'},
-        groupId: {type: 'string'},
-        splitType: {type: 'string'},
+        paid_by: {type: 'string'},
+        group_id: {type: 'string'},
+        split_type: {type: 'string'},
         created_at: {type: 'dateTime'},
         updated_at : {type: 'dateTime'},
     },
-    User_Expense: {
+    user_expenses: {
         id: {type: 'string'}, 
-        userId: {type: 'string'},
-        friendId:  {type:'string'},
-        expenseId : {type: 'string'},
-        amountOweByFriend: {type: 'string'},
+        user_id: {type: 'string'},
+        friend_id:  {type:'string'},
+        expense_id : {type: 'string'},
+        amount_owe_by_friend: {type: 'string'},
         createat_at : {type: 'dateTime'},
         updated_at : {type: 'dateTime'},
     }

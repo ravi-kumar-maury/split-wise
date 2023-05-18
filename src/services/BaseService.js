@@ -1,22 +1,26 @@
-const entity = require('../db/entity')();
+const { Entity }  = require('../db/entity');
 class BaseService {
   constructor(model){
     this.model = model
   }
   async create(body){
-    const resp = await entity.create(this.model , body);
+    const entity = new Entity(this.model);
+    const resp = await entity.create(body);
     return resp;
  }
   async get(id){
-  const resp = await entity.read(this.model , id);
+  const entity = new Entity(this.model);
+  const resp = await entity.read(id);
   return resp;
 }
   async update(id, body){
-  const resp = await entity.update(this.model , id, body);
+  const entity = new Entity(this.model);
+  const resp = await entity.update(id, body);
   return resp;
 }
   async delete(id){
-  const resp = await entity.delete(this.model , id);
+  const entity = new Entity(this.model);
+  const resp = await entity.delete(id);
   return resp;
 }
 

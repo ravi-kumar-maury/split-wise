@@ -1,29 +1,22 @@
 const express = require('express');
 const router = express.Router();
+const getInsightService = require('../services/GetInsightsService')
+const getInsightInst = getInsightService.getInst('users');
 
-// GET /api/getInsights
-router.get('/', (req, res) => {
-  // Logic to handle GET /api/getInsights
+
+// GET /api/getInsights/:groupId
+router.get('/:id', async (req, res) => {
+  try {
+    let id = req.params.id;
+    const user = await getInsightInst.get(id);
+    res.status(200).json(user);
+    } 
+    catch(error){
+        console.log('error occured', error);
+        res.status(500).json({error: error.message});
+    }
 });
 
-// POST /api/getInsights
-router.post('/', (req, res) => {
-  // Logic to handle POST /api/getInsights
-});
 
-// GET /api/getInsights/:id
-router.get('/:id', (req, res) => {
-  // Logic to handle GET /api/getInsights/:id
-});
-
-// PUT /api/getInsights/:id
-router.put('/:id', (req, res) => {
-  // Logic to handle PUT /api/getInsights/:id
-});
-
-// DELETE /api/getInsights/:id
-router.delete('/:id', (req, res) => {
-  // Logic to handle DELETE /api/getInsights/:id
-});
 
 module.exports = router;
