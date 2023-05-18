@@ -1,0 +1,7 @@
+{
+  "splitEnum" : {
+"equal":"equal",
+"exact":"exact",
+"percentage": "percentage"  
+}
+}
