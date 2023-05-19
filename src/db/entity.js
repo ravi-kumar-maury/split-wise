@@ -11,7 +11,7 @@ class Entity {
         database: "postgres",
         password: "ravi",
         port: 5432,
-        host: "localhost",
+        host: "db",
       }
     )
   }
