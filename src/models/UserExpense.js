@@ -18,7 +18,7 @@ async createExpenseWithSplitTypeEqual(expense, expense_id) {
       const equalAmount = amount / numUsers;
   
       // Insert or update the owed amount for each user in the user_expenses table
-      const findInQuery = 'SELECT amount_owe_by_friend FROM user_expenses WHERE user_id = $1 AND friend_id = $2';
+      const findInQuery = 'SELECT id, amount_owe_by_friend FROM user_expenses WHERE user_id = $1 AND friend_id = $2';
       const insertQuery = `INSERT INTO user_expenses (user_id, friend_id, expense_id, amount_owe_by_friend)
         VALUES ($1, $2, $3, $4)`;
       for (const user of usersInGroup) {
@@ -26,7 +26,7 @@ async createExpenseWithSplitTypeEqual(expense, expense_id) {
         let result = await this.rawQuery(findInQuery, values.slice(0,2));
         if(!_.isEmpty(result)){
             let userExpenseId = result[0].id
-            await this.update(userExpenseId, {amount_owe_by_friend: `${equalAmount + result[0].amount_owe_by_friend}`})
+            await this.update(userExpenseId, {amount_owe_by_friend: `${equalAmount + parseInt(result[0].amount_owe_by_friend)}`})
         }
         else {
             await this.rawQuery(insertQuery, values);

@@ -9,7 +9,7 @@ const userServiceInst = userService.getInst('users');
   router.get('/:id', async (req, res) => {
   try {
     let id = req.params.id;
-    const user = await userServiceInst.get(id);
+    const user = await userServiceInst.getUser(id);
     res.status(201).json(user);
     } 
     catch(error){

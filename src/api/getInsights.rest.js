@@ -8,7 +8,7 @@ const getInsightInst = getInsightService.getInst('users');
 router.get('/:id', async (req, res) => {
   try {
     let id = req.params.id;
-    const user = await getInsightInst.get(id);
+    const user = await getInsightInst.getInsights(id);
     res.status(200).json(user);
     } 
     catch(error){
