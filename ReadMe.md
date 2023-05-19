@@ -1,8 +1,8 @@
 # Running application inside docker
 
-1 . clone the repo 
-2.  go to root folder of project
-3 . docker-compose up 
+1 . clone the repo <br>
+2.  go to root folder of project <br>
+3 . docker-compose up <br>
 
 this will spin up application instance
 
@@ -116,3 +116,7 @@ For detailed information on request and response formats, refer to the API docum
 ### postgres local setup 
 1. docker pull postgres
 2. docker run --name my-postgres-container -e POSTGRES_PASSWORD=ravi  -p 5432:5432 -d postgres:latest
+
+#### postman collection
+
+https://www.postman.com/lively-capsule-555412/workspace/spitwise/collection/9431168-29cc2390-bde9-4ec0-859c-1d9a5fa83e46?action=share&creator=9431168
