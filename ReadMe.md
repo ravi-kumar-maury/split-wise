@@ -1,3 +1,11 @@
+# Running application inside docker
+
+1 . clone the repo 
+2.  go to root folder of project
+3 . docker-compose up 
+
+this will spin up application instance
+
 # API Documentation
 
 This document provides an overview of the routes available in the User Management API, Group Management API, and Expense Management API.
@@ -107,4 +115,4 @@ For detailed information on request and response formats, refer to the API docum
 
 ### postgres local setup 
 1. docker pull postgres
-2. docker run --name my-postgres-container -e POSTGRES_PASSWORD=ravi  -p 5433:5432 -d postgres:latest
+2. docker run --name my-postgres-container -e POSTGRES_PASSWORD=ravi  -p 5432:5432 -d postgres:latest

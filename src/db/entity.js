@@ -10,7 +10,7 @@ class Entity {
         user: "postgres",
         database: "postgres",
         password: "ravi",
-        port: 5433,
+        port: 5432,
         host: "localhost",
       }
     )
