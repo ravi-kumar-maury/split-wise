@@ -4,7 +4,7 @@
   "description": "managing expenses",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npx jest",
     "start": "node src/index.js"
   },
   "author": "ravi.maury",
@@ -16,5 +16,8 @@
     "mysql2": "^3.3.1",
     "nodemon": "^2.0.22",
     "pg": "^8.11.0"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
   }
 }
