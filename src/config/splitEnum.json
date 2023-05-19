@@ -1,6 +1,7 @@
 {
   "splitEnum" : {
 "equal":"equal",
+"directPayment":"direct",
 "exact":"exact",
 "percentage": "percentage"  
 }

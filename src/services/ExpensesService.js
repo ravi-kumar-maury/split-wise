@@ -11,6 +11,11 @@ class ExpenseService extends BaseService {
         if (expense.split_type == splitEnum.equal)
         await userExpenseInst.createExpenseWithSplitTypeEqual(expense, result.id)
 
+        if (expense.split_type == splitEnum.directPayment)
+        await userExpenseInst.handleDirectPayment(expense, result.id)
+
+        // TODO: other splitType support to be added
+        return result;
     }
 }
 

@@ -26,7 +26,7 @@ class Entity {
     const columns = Object.keys(entityData).join(', ');
     const values = Object.values(entityData);
     const placeholders = values.map((_, index) => '$' + (index + 1)).join(', ');
-    const query = `INSERT INTO ${this.table} (${columns}) VALUES (${placeholders}) returning id`;
+    const query = `INSERT INTO ${this.table} (${columns}) VALUES (${placeholders}) returning *`;
     const result  = await this.connection.query(query, values);
     return result.rows[0];
   }
@@ -34,7 +34,7 @@ class Entity {
   async read(id) {
     const query = `SELECT * FROM ${this.table} WHERE id = $1`;
     const result = await this.connection.query(query, [id]);
-    if (result.rows.length === 0) {
+    if (result.rows.length === 0) { 
       throw new Error(`${this.table} not found`);
     }
     return result.rows[0];
@@ -43,13 +43,20 @@ class Entity {
   async update(id, data) {
     const updates = Object.keys(data).map((key, index) => `${key} = $${index + 1}`).join(', ');
     const values = [...Object.values(data), id];
-    const query = `UPDATE ${this.table} SET ${updates} WHERE id = $${values.length}`;
-    await this.connection.query(query, values);
+    const query = `UPDATE ${this.table} SET ${updates} WHERE id = $${values.length} returning *`;
+    const result = await this.connection.query(query, values);
+    if(result.rows.length >=1){
+      return result.rows[0];
+    }
   }
 
   async delete(id) {
-    const query = `DELETE FROM ${this.table} WHERE id = $1`;
-    await this.connection.query(query, [id]);
+    const query = `DELETE FROM ${this.table} WHERE id = $1 returning *`;
+    const result = await this.connection.query(query, [id]);
+    if (result.rows.length >= 1) {
+      return true;
+    }
+    return false;
   }
 }
 

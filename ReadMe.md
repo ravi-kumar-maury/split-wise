@@ -6,6 +6,20 @@
 
 this will spin up application instance
 
+## Features 
+
+ ###  1. Group Expenses:
+  Create and manage group expenses with multiple participants. Splitwise calculates each person's share and keeps a record of who owes whom and how much.
+
+  ### 2. Bill Splitting:
+   Split bills at restaurants or other shared expenses within the group. splitType = (Equal , directPayment) within the group
+
+  ### 3. Expense Tracking inside group: 
+    Keep track of all your expenses in one place. Splitwise maintains a history of expenses in a group.
+ ### 4.  Debts Simplification for group:
+    Splitwise simplifies complex debts among multiple people.
+
+
 # API Documentation
 
 This document provides an overview of the routes available in the User Management API, Group Management API, and Expense Management API.
@@ -55,6 +69,17 @@ Add a member to a group by making a POST request to `/groups/{groupId}/members`.
 ### Add an expense
 
 Add an expense by making a POST request to `/expenses`.
+
+for direct payment - POST /expenses with splitType:"direct" and additional key friend_id to whom direct payment to be done :
+
+{
+    "description":"dubai trip23",
+    "amount": 166.67,
+    "paid_by":18,
+    "group_id": 1,
+    "split_type":"direct",
+    "friend_id":19
+}
 
 ### Get an expense's information
 
